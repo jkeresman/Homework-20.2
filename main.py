@@ -1,18 +1,15 @@
 import os
 import json
+import secrets
 
 from flask import Flask, render_template, request, redirect, url_for, make_response
 from requests_oauthlib import OAuth2Session
 
-try:
-    import secrets  # needed only for localhost
-except ImportError as ex:
-    pass
 
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
     return render_template("index.html")
 
